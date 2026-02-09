@@ -165,7 +165,7 @@
         text-decoration: none;
       }
 
-      .brand-text{
+      .brand-text {
         margin: 0;
         font-weight: 700;
         font-size: 18px;
@@ -214,24 +214,39 @@
       }
 
       /* --- MEDIA QUERIES FOR HEADER --- */
-      
+
       /* Tablet Size */
       @media (max-width: 768px) {
-        .logo-img { height: 35px; }
-        .brand-text { font-size: 16px; }
-        .brand-wrapper { gap: 12px; }
-        .header-btn { padding: 10px 20px; font-size: 14px; }
+        .logo-img {
+          height: 35px;
+        }
+        .brand-text {
+          font-size: 16px;
+        }
+        .brand-wrapper {
+          gap: 12px;
+        }
+        .header-btn {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
       }
 
       /* Mobile Size */
       @media (max-width: 480px) {
-        .container { padding: 0 16px; } /* Slightly more space on edges */
-        
+        .container {
+          padding: 0 16px;
+        } /* Slightly more space on edges */
+
         /* HIDE the text on mobile to save space */
-        .brand-text { display: none; } 
-        
-        .logo-img { height: 32px; }
-        
+        .brand-text {
+          display: none;
+        }
+
+        .logo-img {
+          height: 32px;
+        }
+
         .header-btn {
           padding: 8px 16px;
           font-size: 13px;
@@ -241,7 +256,7 @@
       /* Hero Section - LEFT ALIGNED */
       .hero {
         padding: 140px 0 100px;
-        margin-top: 70px;
+        margin-top: 40px;
         position: relative;
         z-index: 1;
 
@@ -520,7 +535,7 @@
 
       .problem-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(3, minmax(280px, 1fr));
         gap: 24px;
         max-width: 1200px;
         margin: 0 auto 50px;
@@ -535,6 +550,34 @@
         cursor: pointer;
         position: relative;
         overflow: hidden;
+      }
+
+      
+      /* Desktop Logic: Stretch the last two items */
+      @media (min-width: 900px) {
+
+        /* Better Approach for "Stretching" to fill the row: */
+        .problem-grid {
+          grid-template-columns: repeat(6, 1fr); /* Use a 6-col base for math */
+        }
+
+        .problem-card {
+          grid-column: span 2; /* Normal items take 2 units (6/2 = 3 columns) */
+        }
+
+        .problem-card:nth-child(4) {
+          grid-column: span 3; /* First of the last two takes 3 units (6/3 = 2 columns) */
+        }
+        .problem-card:nth-child(5) {
+          grid-column: span 3; /* Last two take 3 units each (6/3 = 2 columns) */
+        }
+      }
+
+      /* Tablet/Mobile Logic */
+      @media (max-width: 992px) {
+        .problem-grid {
+          grid-template-columns: 1fr; /* Stacked */
+        }
       }
 
       .problem-card::before {
@@ -631,7 +674,7 @@
 
       .solution-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
         gap: 28px;
         max-width: 1200px;
         margin: 0 auto 50px;
@@ -725,7 +768,7 @@
 
       .who-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(3, minmax(280, 1fr));
         gap: 28px;
         max-width: 1200px;
         margin: 0 auto 50px;
@@ -783,7 +826,7 @@
 
       .outcomes-list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
         max-width: 1200px;
         margin: 0 auto 50px;
@@ -796,9 +839,36 @@
         border-radius: 12px;
         display: flex;
         gap: 16px;
-        align-items: start;
+        align-items: center; /* Changed to center for better alignment with checkmarks */
         border: 2px solid rgba(59, 156, 222, 0.2);
         transition: all 0.3s;
+      }
+
+      /* Desktop Logic: Stretch the last two items */
+      @media (min-width: 900px) {
+
+        /* Better Approach for "Stretching" to fill the row: */
+        .outcomes-list {
+          grid-template-columns: repeat(6, 1fr); /* Use a 6-col base for math */
+        }
+
+        .outcome-item {
+          grid-column: span 2; /* Normal items take 2 units (6/2 = 3 columns) */
+        }
+
+        .outcome-item:nth-child(4) {
+          grid-column: span 3; /* First of the last two takes 3 units (6/3 = 2 columns) */
+        }
+        .outcome-item:nth-child(5) {
+          grid-column: span 3; /* Last two take 3 units each (6/3 = 2 columns) */
+        }
+      }
+
+      /* Tablet/Mobile Logic */
+      @media (max-width: 992px) {
+        .outcomes-list {
+          grid-template-columns: 1fr; /* Stacked */
+        }
       }
 
       .outcome-item:hover {
@@ -1424,7 +1494,9 @@
             <p class="brand-text">Amazon Solutions Inc</p>
           </div>
 
-          <a href="https://calendly.com/funkiki-tech/30min" class="header-btn">Get Free Audit</a>
+          <a href="https://calendly.com/funkiki-tech/30min" class="header-btn"
+            >Get Free Audit</a
+          >
         </div>
       </div>
     </header>
@@ -1445,7 +1517,9 @@
             using AI — so you scale revenue without scaling chaos.
           </p>
           <div class="cta-buttons">
-            <a href="https://calendly.com/funkiki-tech/30min" class="btn-primary"
+            <a
+              href="https://calendly.com/funkiki-tech/30min"
+              class="btn-primary"
               >Get My FREE AI Efficiency Audit</a
             >
             <a href="#how-it-works" class="btn-secondary">See How It Works</a>
@@ -1792,7 +1866,9 @@
         <p style="margin-bottom: 40px">
           It needs smarter systems. Book your Free AI Efficiency Audit today.
         </p>
-        <a href="https://calendly.com/funkiki-tech/30min" class="btn-primary">Schedule My Audit</a>
+        <a href="https://calendly.com/funkiki-tech/30min" class="btn-primary"
+          >Schedule My Audit</a
+        >
       </div>
     </section>
 
@@ -1819,10 +1895,10 @@
               </p>
               <span class="footer-badge">✨ AI-Powered Operations</span>
               <div class="footer-social">
-                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
-                <a href="#" class="social-link" aria-label="Facebook">f</a>
-                <a href="#" class="social-link" aria-label="Email">✉</a>
+                <a href="https://www.linkedin.com/company/91101547/admin/dashboard" class="social-link" aria-label="LinkedIn">in</a>
+                <!-- <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                <a href="#" class="social-link" aria-label="Facebook">f</a> -->
+                <a href="mailto:funkiki.tech@gmail.com" class="social-link" aria-label="Email">✉</a>
               </div>
             </div>
 
@@ -1854,7 +1930,11 @@
               <ul class="footer-links">
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#outcomes">Results</a></li>
-                <li><a href="https://calendly.com/funkiki-tech/30min">Get Free Audit</a></li>
+                <li>
+                  <a href="https://calendly.com/funkiki-tech/30min"
+                    >Get Free Audit</a
+                  >
+                </li>
                 <li><a href="#faq">FAQ</a></li>
               </ul>
             </div>
@@ -1863,7 +1943,11 @@
             <div class="footer-column">
               <h3>Support</h3>
               <ul class="footer-links">
-                <li><a href="https://calendly.com/funkiki-tech/30min">Contact Us</a></li>
+                <li>
+                  <a href="https://calendly.com/funkiki-tech/30min"
+                    >Contact Us</a
+                  >
+                </li>
                 <li><a href="#">Book a Demo</a></li>
                 <li><a href="#">Help Center</a></li>
                 <li><a href="#">Status</a></li>
