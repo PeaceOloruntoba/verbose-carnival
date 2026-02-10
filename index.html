@@ -253,15 +253,18 @@
         }
       }
 
-      /* Hero Section - LEFT ALIGNED */
+      /* Update the .hero section */
       .hero {
         padding: 140px 0 100px;
-        margin-top: 40px;
+        margin-top: 16px;
         position: relative;
         z-index: 1;
 
-        /* --- NEW BACKGROUND IMAGE CODE --- */
-        /* This creates a dark blue overlay so text pops, then loads the image */
+        /* ADD THESE THREE LINES */
+        display: flex;
+        justify-content: center;
+        text-align: center;
+
         background:
           linear-gradient(
             to right,
@@ -269,12 +272,29 @@
             rgba(30, 58, 82, 0.8)
           ),
           url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop");
-
-        /* This ensures the image covers the whole area and stays centered */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        /* --------------------------------- */
+      }
+
+      /* Update the .hero-content */
+      .hero-content {
+        max-width: 750px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: center; /* Centers the buttons/items horizontally */
+        justify-content: center;
+        z-index: 2;
+        margin: 0 auto; /* ADD THIS to center the container box */
+      }
+
+      /* Update the button container */
+      .cta-buttons {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center; /* ADD THIS to center buttons */
       }
 
       .hero-glow {
@@ -318,12 +338,6 @@
         }
       }
 
-      .hero-content {
-        max-width: 750px;
-        position: relative;
-        z-index: 2;
-      }
-
       .hero h1 {
         font-size: 62px;
         font-weight: 800;
@@ -357,12 +371,6 @@
         margin-bottom: 40px;
         line-height: 1.6;
         animation: fadeInUp 0.8s ease-out 0.2s both;
-      }
-
-      .cta-buttons {
-        display: flex;
-        gap: 18px;
-        flex-wrap: wrap;
       }
 
       .btn-primary {
@@ -552,10 +560,8 @@
         overflow: hidden;
       }
 
-      
       /* Desktop Logic: Stretch the last two items */
       @media (min-width: 900px) {
-
         /* Better Approach for "Stretching" to fill the row: */
         .problem-grid {
           grid-template-columns: repeat(6, 1fr); /* Use a 6-col base for math */
@@ -846,7 +852,6 @@
 
       /* Desktop Logic: Stretch the last two items */
       @media (min-width: 900px) {
-
         /* Better Approach for "Stretching" to fill the row: */
         .outcomes-list {
           grid-template-columns: repeat(6, 1fr); /* Use a 6-col base for math */
@@ -1895,10 +1900,20 @@
               </p>
               <span class="footer-badge">✨ AI-Powered Operations</span>
               <div class="footer-social">
-                <a href="https://www.linkedin.com/company/91101547/admin/dashboard" class="social-link" aria-label="LinkedIn">in</a>
+                <a
+                  href="https://www.linkedin.com/company/91101547/admin/dashboard"
+                  class="social-link"
+                  aria-label="LinkedIn"
+                  >in</a
+                >
                 <!-- <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
                 <a href="#" class="social-link" aria-label="Facebook">f</a> -->
-                <a href="mailto:funkiki.tech@gmail.com" class="social-link" aria-label="Email">✉</a>
+                <a
+                  href="mailto:funkiki.tech@gmail.com"
+                  class="social-link"
+                  aria-label="Email"
+                  >✉</a
+                >
               </div>
             </div>
 
