@@ -1,0 +1,96 @@
+
+      /* Lead Capture */
+      .lead-capture {
+        background: linear-gradient(
+          135deg,
+          rgba(21, 45, 66, 0.9) 0%,
+          rgba(59, 156, 222, 0.2) 100%
+        );
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .lead-capture::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(59, 156, 222, 0.2) 0%,
+          transparent 70%
+        );
+        top: -250px;
+        left: -250px;
+        animation: pulse 6s ease-in-out infinite;
+      }
+
+      .lead-capture::after {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(245, 166, 35, 0.15) 0%,
+          transparent 70%
+        );
+        bottom: -200px;
+        right: -200px;
+        animation: pulse 6s ease-in-out infinite;
+        animation-delay: 3s;
+      }
+
+      .lead-capture h2 {
+        font-size: 52px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        color: var(--white);
+        position: relative;
+        z-index: 1;
+      }
+
+      .lead-capture > p {
+        font-size: 24px;
+        margin-bottom: 16px;
+        color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        z-index: 1;
+      }
+
+      .lead-benefits {
+        max-width: 600px;
+        margin: 20px auto;
+        text-align: left;
+        position: relative;
+        z-index: 1;
+      }
+
+      .lead-benefit {
+        display: flex;
+        align-items: start;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 22px;
+        color: var(--white);
+        font-weight: 500;
+      }
+
+      .lead-benefit::before {
+        content: "✔";
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+
+      .lead-note {
+        font-size: 20px;
+        margin: 26px 0 40px;
+        color: var(--blue);
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+      }

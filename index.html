@@ -104,19 +104,6 @@
       /* } */
       /* } */
 
-      /* Header */
-      header {
-        background: var(--dark-navy);
-        backdrop-filter: blur(10px);
-        padding: 12px 0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        border-bottom: 2px solid var(--gold);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      }
-
       .brand {
         display: flex;
         align-items: center;
@@ -1050,102 +1037,6 @@
         line-height: 1.6;
       }
 
-      /* Lead Capture */
-      .lead-capture {
-        background: linear-gradient(
-          135deg,
-          rgba(21, 45, 66, 0.9) 0%,
-          rgba(59, 156, 222, 0.2) 100%
-        );
-        padding: 100px 0;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .lead-capture::before {
-        content: "";
-        position: absolute;
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(
-          circle,
-          rgba(59, 156, 222, 0.2) 0%,
-          transparent 70%
-        );
-        top: -250px;
-        left: -250px;
-        animation: pulse 6s ease-in-out infinite;
-      }
-
-      .lead-capture::after {
-        content: "";
-        position: absolute;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(
-          circle,
-          rgba(245, 166, 35, 0.15) 0%,
-          transparent 70%
-        );
-        bottom: -200px;
-        right: -200px;
-        animation: pulse 6s ease-in-out infinite;
-        animation-delay: 3s;
-      }
-
-      .lead-capture h2 {
-        font-size: 52px;
-        font-weight: 800;
-        margin-bottom: 20px;
-        color: var(--white);
-        position: relative;
-        z-index: 1;
-      }
-
-      .lead-capture > p {
-        font-size: 24px;
-        margin-bottom: 16px;
-        color: rgba(255, 255, 255, 0.9);
-        position: relative;
-        z-index: 1;
-      }
-
-      .lead-benefits {
-        max-width: 600px;
-        margin: 20px auto;
-        text-align: left;
-        position: relative;
-        z-index: 1;
-      }
-
-      .lead-benefit {
-        display: flex;
-        align-items: start;
-        gap: 12px;
-        margin-bottom: 16px;
-        font-size: 22px;
-        color: var(--white);
-        font-weight: 500;
-      }
-
-      .lead-benefit::before {
-        content: "✔";
-        color: var(--gold);
-        font-weight: 700;
-        font-size: 24px;
-        flex-shrink: 0;
-      }
-
-      .lead-note {
-        font-size: 20px;
-        margin: 26px 0 40px;
-        color: var(--blue);
-        font-weight: 600;
-        position: relative;
-        z-index: 1;
-      }
-
       /* FAQ Section */
       .faq-section {
         background: rgba(21, 45, 66, 0.5);
@@ -1476,21 +1367,6 @@
         /* transform: translateY(0); */
       }
     </style>
-    <style>
-      /* This hides the text name on screens smaller than 600px */
-      @media (max-width: 600px) {
-        .brand-name {
-          display: none !important;
-        }
-        .header-container {
-          padding: 0 16px !important; /* Better spacing for mobile */
-        }
-        .audit-btn {
-          padding: 10px 20px !important;
-          font-size: 14px !important;
-        }
-      }
-    </style>
   </head>
   <body>
     <!-- Background Pattern -->
@@ -1500,25 +1376,45 @@
       <div class="bg-circle"></div>
     </div>
 
-    <!-- Header -->
-    <!-- <header>
-      <div class="container">
-        <div class="header-content">
-          <div class="brand-wrapper">
-            <img
-              src=""
-              alt="Amazon Solutions Inc Logo"
-              style="height: 50px; width: auto; display: block"
-            />
-            <p class="brand-text">Amazon Solutions Inc</p>
-          </div>
+    <style>
+      /* Base Styles */
+      header {
+        background: var(--dark-navy);
+        backdrop-filter: blur(10px);
+        padding: 12px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 2px solid var(--gold);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
 
-          <a href="https://calendly.com/funkiki-tech/30min" class="header-btn"
-            >Get Free Audit</a
-          >
-        </div>
-      </div>
-    </header> -->
+      /* Responsive Adjustments */
+      @media (max-width: 600px) {
+        header {
+          padding: 8px 0; /* Slightly slimmer header on mobile */
+        }
+
+        .brand-name {
+          display: none !important;
+        }
+
+        .header-container {
+          padding: 0 16px !important;
+        }
+
+        .header-logo {
+          height: 50px !important; /* Scaled down from 75px */
+        }
+
+        .audit-btn {
+          padding: 8px 16px !important;
+          font-size: 13px !important;
+          border-radius: 20px !important;
+        }
+      }
+    </style>
 
     <header>
       <div
@@ -1528,22 +1424,23 @@
           justify-content: space-between;
           align-items: center;
           padding: 0 40px;
-          background: var(--dark-navy);
-          color: var(--white);
+          max-width: 1200px; /* Optional: keeps header content from spreading too wide on ultra-wide screens */
+          margin: 0 auto;
         "
       >
         <div style="display: flex; align-items: center; gap: 12px">
           <img
             src="https://res.cloudinary.com/ducorig4o/image/upload/v1770903103/logo_shaerj.png"
             alt="Amazon Solutions Inc Logo"
-            style="width: auto; height: 75px"
+            class="header-logo"
+            style="width: auto; height: 75px; transition: height 0.3s ease"
           />
           <span
             class="brand-name"
             style="
               margin: 0;
               font-weight: 700;
-              font-size: 30px;
+              font-size: 26px; /* Slightly reduced for better fit */
               color: var(--white);
               white-space: nowrap;
             "
@@ -1564,6 +1461,7 @@
             font-weight: 700;
             font-size: 15px;
             white-space: nowrap;
+            transition: all 0.3s ease;
           "
         >
           Get Free Audit
