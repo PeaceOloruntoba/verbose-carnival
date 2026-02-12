@@ -1852,38 +1852,161 @@
       </div>
     </section>
 
-    <!-- Lead Capture Section -->
+    <style>
+      .lead-capture {
+        padding: 80px 20px;
+        background: var(--dark-navy);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* The Glowing Card Container */
+      .cta-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 60px 40px;
+        max-width: 700px; /* Limits width for readability */
+        width: 100%;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Animated Glowing Banner Line */
+      .cta-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        animation: glow-slide 4s linear infinite;
+      }
+
+      @keyframes glow-slide {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      .cta-card h2 {
+        color: var(--white);
+        font-size: clamp(24px, 5vw, 36px); /* Fluid typography */
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      /* Centered Grid for Equal Width Benefits */
+      .lead-benefits {
+        display: grid;
+        grid-template-columns: 1fr; /* Stacked but uniform */
+        gap: 15px;
+        margin: 35px auto;
+        max-width: 500px; /* Constrains the width of the benefits group */
+      }
+
+      .lead-benefit {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 15px 25px;
+        border-radius: 12px;
+        font-size: 16px;
+        border: 1px solid rgba(255, 215, 0, 0.15);
+        text-align: left; /* Text starts from left */
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .lead-benefit:hover {
+        background: rgba(255, 215, 0, 0.05);
+        transform: translateX(5px);
+      }
+
+      .lead-note {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        margin-bottom: 35px;
+        line-height: 1.5;
+      }
+
+      /* High-Impact Button */
+      .btn-primary-glow {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--dark-navy);
+        padding: 20px 45px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 18px;
+        text-transform: uppercase;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+      }
+
+      .btn-primary-glow:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
+      }
+
+      @media (max-width: 600px) {
+        .cta-card {
+          padding: 40px 20px;
+        }
+        .lead-benefit {
+          font-size: 14px;
+          padding: 12px 15px;
+        }
+      }
+    </style>
+
     <section id="lead-capture" class="lead-capture">
-      <div class="container">
+      <div class="cta-card">
         <h2>Let's Find the 20+ Hours You Can Save Every Week</h2>
-        <p>Book your free AI Efficiency Audit and we'll show you exactly:</p>
+        <p style="color: var(--white); opacity: 0.8; margin-bottom: 0">
+          Book your free AI Efficiency Audit to see:
+        </p>
 
         <div class="lead-benefits">
-          <div class="lead-benefit">Where automation can reduce workload</div>
           <div class="lead-benefit">
-            Which processes are costing you time and money
+            <span>✨</span>
+            <span>Where automation can reduce workload</span>
           </div>
           <div class="lead-benefit">
-            How AI can improve response speed and accuracy
+            <span>📊</span>
+            <span>Which processes cost you time and money</span>
+          </div>
+          <div class="lead-benefit">
+            <span>🚀</span>
+            <span>How AI improves response speed and accuracy</span>
           </div>
         </div>
 
         <p class="lead-note">
-          This is for U.S. retail, wholesale, and logistics operators ready to
-          scale smarter.
+          Specifically for U.S. retail, wholesale, and logistics operators ready
+          to scale smarter.
         </p>
 
         <a
-          href="#"
-          class="btn-primary"
-          onclick="
-            alert(
-              'Schedule your FREE AI Audit - Connect your booking system here',
-            );
-            return false;
-          "
-          >Schedule My FREE AI Audit</a
+          href="https://calendly.com/funkiti-tech/30min"
+          class="btn-primary-glow"
         >
+          Schedule My FREE AI Audit
+        </a>
       </div>
     </section>
 
