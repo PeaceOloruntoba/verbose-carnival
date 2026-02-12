@@ -1366,6 +1366,10 @@
         opacity: 1;
         /* transform: translateY(0); */
       }
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
     </style>
   </head>
   <body>
@@ -1382,7 +1386,7 @@
         backdrop-filter: blur(10px);
         padding: 12px 0;
         position: fixed;
-        width: 100%;
+        width: 100dvw;
         top: 0;
         z-index: 1000;
         border-bottom: 2px solid var(--gold);
@@ -1395,7 +1399,7 @@
         }
 
         /* 1. Hide the name and remove its physical footprint */
-        .brand-name {
+        .brand-nom {
           display: none !important;
           width: 0 !important;
           margin: 0 !important;
@@ -1441,10 +1445,10 @@
             src="https://res.cloudinary.com/ducorig4o/image/upload/v1770903103/logo_shaerj.png"
             alt="Amazon Solutions Inc Logo"
             class="header-logo"
-            style="width: auto; height: 70px"
+            style="height: 70px"
           />
           <span
-            class="brand-name"
+            class="brand-nom"
             style="
               margin: 0;
               font-weight: 700;
